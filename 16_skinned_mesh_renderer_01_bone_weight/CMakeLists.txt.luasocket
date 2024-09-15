@@ -1,0 +1,34 @@
+include_directories("${CMAKE_SOURCE_DIR}/../resources/non_open_src_depends/luasocket-3.1.0/src/")
+set(LUA_SOCKET_PATH "${CMAKE_SOURCE_DIR}/../resources/non_open_src_depends/luasocket-3.1.0/src/")
+if (MSVC)
+    set(luasocket_c ${LUA_SOCKET_PATH}/auxiliar.c
+            ${LUA_SOCKET_PATH}/buffer.c
+            ${LUA_SOCKET_PATH}/compat.c
+            ${LUA_SOCKET_PATH}/except.c
+            ${LUA_SOCKET_PATH}/inet.c
+            ${LUA_SOCKET_PATH}/io.c
+            ${LUA_SOCKET_PATH}/luasocket.c
+            ${LUA_SOCKET_PATH}/options.c
+            ${LUA_SOCKET_PATH}/select.c
+            ${LUA_SOCKET_PATH}/tcp.c
+            ${LUA_SOCKET_PATH}/timeout.c
+            ${LUA_SOCKET_PATH}/udp.c
+            ${LUA_SOCKET_PATH}/wsocket.c
+            )
+    link_libraries(ws2_32)
+else()
+    set(luasocket_c ${LUA_SOCKET_PATH}/auxiliar.c
+            ${LUA_SOCKET_PATH}/buffer.c
+            ${LUA_SOCKET_PATH}/compat.c
+            ${LUA_SOCKET_PATH}/except.c
+            ${LUA_SOCKET_PATH}/inet.c
+            ${LUA_SOCKET_PATH}/io.c
+            ${LUA_SOCKET_PATH}/luasocket.c
+            ${LUA_SOCKET_PATH}/options.c
+            ${LUA_SOCKET_PATH}/select.c
+            ${LUA_SOCKET_PATH}/tcp.c
+            ${LUA_SOCKET_PATH}/timeout.c
+            ${LUA_SOCKET_PATH}/udp.c
+            ${LUA_SOCKET_PATH}/usocket.c
+            )
+endif()
